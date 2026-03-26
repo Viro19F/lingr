@@ -1396,6 +1396,282 @@ em {
 .footer__links a:hover { color: var(--primary); }
 .footer__bottom span { font-size: 0.78rem; color: var(--text-muted); }
 
+/* Match Algorithm Section */
+.match-algo {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: var(--surface);
+}
+.match-algo h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+}
+.match-algo__sub {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+.match-algo__flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.match-algo__step {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  text-align: center;
+  flex: 1;
+  max-width: 280px;
+}
+.match-algo__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+.match-algo__step h4 {
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+}
+.match-algo__step p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+.match-algo__tags {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.match-algo__tags span {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  background: var(--surface-alt);
+  border-radius: var(--radius-full);
+  color: var(--primary);
+}
+.match-algo__arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.match-algo__arrow span {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.match-algo__result {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.75rem;
+  max-width: 640px;
+  margin: 0 auto 2.5rem;
+  color: #fff;
+}
+.match-algo__result-badge {
+  font-size: 1.1rem;
+  font-weight: 800;
+  background: rgba(255,255,255,0.2);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+.match-algo__result-text strong {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.15rem;
+}
+.match-algo__result-text span {
+  font-size: 0.82rem;
+  opacity: 0.85;
+}
+.match-algo__points {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.match-algo__point {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.match-algo__point svg { flex-shrink: 0; }
+
+@media (max-width: 768px) {
+  .match-algo__flow { flex-direction: column; }
+  .match-algo__step { max-width: 100%; }
+  .match-algo__arrow { transform: rotate(90deg); }
+  .match-algo__points { grid-template-columns: 1fr; }
+  .match-algo__result { flex-direction: column; text-align: center; }
+}
+
+/* Download Banner */
+.download-banner {
+  position: relative;
+  background: linear-gradient(135deg, #0F0E2E 0%, #1A1850 50%, #2D1B69 100%);
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  overflow: hidden;
+  color: #fff;
+}
+.download-banner__bg { position: absolute; inset: 0; pointer-events: none; }
+.download-banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+}
+.download-banner__orb--1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(108, 99, 255, 0.2);
+  top: -100px;
+  right: -50px;
+}
+.download-banner__orb--2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(78, 205, 196, 0.1);
+  bottom: -80px;
+  left: -50px;
+}
+.download-banner__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 3rem;
+  position: relative;
+  z-index: 2;
+}
+.download-banner__content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+.download-banner__content p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 1.5rem;
+}
+.download-banner__buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.store-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 0.65rem 1.25rem;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  backdrop-filter: blur(4px);
+}
+.store-btn:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.3);
+  transform: translateY(-2px);
+}
+.store-btn small {
+  display: block;
+  font-size: 0.6rem;
+  opacity: 0.7;
+  line-height: 1;
+}
+.store-btn strong {
+  display: block;
+  font-size: 0.92rem;
+  line-height: 1.2;
+}
+.download-banner__note {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+}
+.download-phone-mockup {
+  width: 220px;
+  background: #1A1A2E;
+  border-radius: 28px;
+  border: 2px solid rgba(255,255,255,0.1);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.download-phone__screen {
+  padding: 1.5rem 1.25rem 2rem;
+  text-align: center;
+}
+.download-phone__notch {
+  width: 80px;
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  margin: 0 auto 2rem;
+}
+.download-phone__logo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.download-phone__brand {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+}
+.download-phone__tagline {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+.download-phone__cta-mock {
+  background: var(--primary);
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.82rem;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .download-banner__inner { grid-template-columns: 1fr; text-align: center; }
+  .download-banner__content p { margin-left: auto; margin-right: auto; }
+  .download-banner__buttons { justify-content: center; }
+  .download-banner__note { text-align: center !important; }
+  .download-phone-mockup { margin: 0 auto; }
+}
+
 /* Thank You Page */
 .thank-you {
   min-height: 100vh;
@@ -1570,8 +1846,8 @@ em {
       </div>
       <div class="container hero__content">
         <span class="eyebrow">For IE University Students</span>
-        <h1>Stop studying languages.<br><em>Start speaking them.</em></h1>
-        <p class="hero__sub">A language exchange app for IE students to <strong>connect, chat, and improve languages naturally</strong> — through real conversations with people on your campus.</p>
+        <h1>You teach yours.<br>They teach theirs.<br><em>Everyone wins.</em></h1>
+        <p class="hero__sub">lingr pairs you with someone who <strong>speaks the language you want to learn — and wants to learn yours</strong>. You teach each other through real conversations, events, and meetups on campus. Our algorithm rates you, rates them, and finds the perfect combo.</p>
         <div class="hero__actions">
           <button class="btn btn--primary" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Join the Waitlist</button>
           <a href="#how" class="btn btn--ghost">See how it works</a>
@@ -1622,6 +1898,70 @@ em {
               <span class="mock-prompt__label">Conversation starter</span>
               <p>"What's a word in your language that has no translation?"</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW MATCHING WORKS -->
+    <section class="match-algo" id="matching">
+      <div class="container">
+        <span class="eyebrow">The lingr algorithm</span>
+        <h2>We rate you. We rate them.<br><em>We find the perfect match.</em></h2>
+        <p class="match-algo__sub">lingr isn't random. Our algorithm evaluates your language level, interests, personality, and goals — then does the same for everyone else. The result? Matches that actually make sense.</p>
+
+        <div class="match-algo__flow reveal">
+          <div class="match-algo__step">
+            <div class="match-algo__icon" style="background:rgba(108,99,255,0.1);color:var(--primary);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h4>You</h4>
+            <p>Speaks Spanish, learning English. Loves cooking &amp; cinema.</p>
+            <div class="match-algo__tags"><span>ES native</span><span>EN learning</span><span>B2 level</span></div>
+          </div>
+
+          <div class="match-algo__arrow">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="23" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4 3"/>
+              <text x="24" y="29" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800" font-size="14" fill="var(--primary)">AI</text>
+            </svg>
+            <span>Algorithm matches</span>
+          </div>
+
+          <div class="match-algo__step">
+            <div class="match-algo__icon" style="background:rgba(78,205,196,0.1);color:var(--teal);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h4>Them</h4>
+            <p>Speaks English, learning Spanish. Loves film &amp; travel.</p>
+            <div class="match-algo__tags"><span>EN native</span><span>ES learning</span><span>A2 level</span></div>
+          </div>
+        </div>
+
+        <div class="match-algo__result reveal">
+          <div class="match-algo__result-badge">98% match</div>
+          <div class="match-algo__result-text">
+            <strong>You teach them Spanish. They teach you English.</strong>
+            <span>Shared interests: cinema &amp; film. Complementary levels. Same campus.</span>
+          </div>
+        </div>
+
+        <div class="match-algo__points reveal">
+          <div class="match-algo__point">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="m9 12 2 2 4-4"/></svg>
+            <span>Language complementarity — you teach what they want to learn</span>
+          </div>
+          <div class="match-algo__point">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="m9 12 2 2 4-4"/></svg>
+            <span>Interest overlap — shared hobbies = better conversations</span>
+          </div>
+          <div class="match-algo__point">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="m9 12 2 2 4-4"/></svg>
+            <span>Level balancing — so neither person feels lost or bored</span>
+          </div>
+          <div class="match-algo__point">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="m9 12 2 2 4-4"/></svg>
+            <span>Availability &amp; schedule compatibility</span>
           </div>
         </div>
       </div>
@@ -2394,6 +2734,58 @@ em {
             <button type="submit" class="btn btn--primary btn--full">Join the Waitlist</button>
             <p class="waitlist__note">Free forever. No spam. Unsubscribe anytime.</p>
           </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD BANNER -->
+    <section class="download-banner">
+      <div class="download-banner__bg">
+        <div class="download-banner__orb download-banner__orb--1"></div>
+        <div class="download-banner__orb download-banner__orb--2"></div>
+      </div>
+      <div class="container download-banner__inner reveal">
+        <div class="download-banner__content">
+          <span class="eyebrow" style="color:rgba(255,255,255,0.7);">Coming soon</span>
+          <h2>Get lingr on your phone</h2>
+          <p>Download the app and start connecting with language partners on the go. Swipe, match, chat, and meet — all from your pocket.</p>
+          <div class="download-banner__buttons">
+            <button class="store-btn" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+              <div>
+                <small>Download on the</small>
+                <strong>App Store</strong>
+              </div>
+            </button>
+            <button class="store-btn" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">
+              <svg width="22" height="24" viewBox="0 0 22 24" fill="currentColor"><path d="M1.22 0.29c-0.34 0.37-0.53 0.93-0.53 1.62v20.18c0 0.69 0.19 1.25 0.53 1.62l0.08 0.08 11.31-11.31v-0.27L1.31 0.21 1.22 0.29z"/><path d="M16.38 16.25l-3.77-3.77v-0.27l3.77-3.77 0.09 0.05 4.47 2.54c1.28 0.73 1.28 1.91 0 2.64l-4.47 2.54-0.09 0.05z"/><path d="M16.47 16.2L12.61 12.48 1.22 23.71c0.42 0.45 1.11 0.5 1.9 0.06L16.47 16.2z"/><path d="M16.47 8.49L3.12 0.93C2.33 0.49 1.64 0.54 1.22 0.99l11.39 11.49 3.86-3.99z"/></svg>
+              <div>
+                <small>Get it on</small>
+                <strong>Google Play</strong>
+              </div>
+            </button>
+          </div>
+          <p class="download-banner__note">Join the waitlist now — app launching soon at IE Segovia</p>
+        </div>
+        <div class="download-banner__phone">
+          <div class="download-phone-mockup">
+            <div class="download-phone__screen">
+              <div class="download-phone__notch"></div>
+              <div class="download-phone__logo-area">
+                <svg width="48" height="48" viewBox="0 0 40 40" fill="none">
+                  <defs><linearGradient id="dlGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#4A90E2"/><stop offset="100%" stop-color="#7B5EA7"/></linearGradient></defs>
+                  <path d="M20 2C10 2 2 9 2 18c0 5 2.5 9.5 6.5 12.5L5 38l8-4c2.2 0.8 4.5 1.2 7 1.2 10 0 18-7 18-16S30 2 20 2z" fill="url(#dlGrad)"/>
+                  <circle cx="20" cy="18" r="8" stroke="white" stroke-width="1.8" fill="none"/>
+                  <line x1="20" y1="10" x2="20" y2="26" stroke="white" stroke-width="1.5"/>
+                  <line x1="12" y1="18" x2="28" y2="18" stroke="white" stroke-width="1.5"/>
+                  <ellipse cx="20" cy="18" rx="4" ry="8" stroke="white" stroke-width="1.3" fill="none"/>
+                </svg>
+                <span class="download-phone__brand">lingr</span>
+              </div>
+              <div class="download-phone__tagline">You teach. They teach.<br>Everyone learns.</div>
+              <div class="download-phone__cta-mock">Open App</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
