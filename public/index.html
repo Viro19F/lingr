@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linger — Meet People. Practice Languages. For Real.</title>
+  <meta name="description" content="A language exchange app for IE students to connect, chat, and improve languages naturally through real conversations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>L</text></svg>">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">linger<span>.</span></a>
+      <nav class="nav__links" id="navLinks">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#community">Community</a>
+        <a href="/app" class="nav__cta">Open App</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT (Landing page shown by default, app hidden) -->
+  <main id="landingPage">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__bg">
+        <div class="hero__orb hero__orb--1"></div>
+        <div class="hero__orb hero__orb--2"></div>
+        <div class="hero__orb hero__orb--3"></div>
+      </div>
+      <div class="container hero__content">
+        <span class="eyebrow">For IE University Students</span>
+        <h1>Stop studying languages.<br><em>Start speaking them.</em></h1>
+        <p class="hero__sub">A language exchange app for IE students to <strong>connect, chat, and improve languages naturally</strong> — through real conversations with people on your campus.</p>
+        <div class="hero__actions">
+          <button class="btn btn--primary" onclick="scrollToWaitlist()">Join the Waitlist</button>
+          <a href="#how" class="btn btn--ghost">See how it works</a>
+        </div>
+        <div class="hero__proof">
+          <div class="hero__avatars">
+            <div class="avatar" style="background: #6C63FF;">S</div>
+            <div class="avatar" style="background: #FF6B6B;">L</div>
+            <div class="avatar" style="background: #4ECDC4;">E</div>
+            <div class="avatar" style="background: #FFE66D;">M</div>
+            <div class="avatar" style="background: #A8E6CF;">A</div>
+          </div>
+          <span class="hero__proof-text"><strong id="waitlistCount">300</strong>+ IE students already interested</span>
+        </div>
+      </div>
+      <div class="container hero__visual">
+        <div class="phone-mockup">
+          <div class="phone-mockup__screen">
+            <div class="mock-header">
+              <span class="mock-time">9:41</span>
+              <span class="mock-title">Matches</span>
+            </div>
+            <div class="mock-match">
+              <div class="mock-avatar" style="background: #6C63FF;">S</div>
+              <div class="mock-match__info">
+                <strong>Sofia Martinez</strong>
+                <span>Spanish native &bull; Learning English</span>
+              </div>
+              <span class="mock-badge">98%</span>
+            </div>
+            <div class="mock-match">
+              <div class="mock-avatar" style="background: #FF6B6B;">L</div>
+              <div class="mock-match__info">
+                <strong>Lucas Dubois</strong>
+                <span>French native &bull; Learning Spanish</span>
+              </div>
+              <span class="mock-badge">94%</span>
+            </div>
+            <div class="mock-match mock-match--active">
+              <div class="mock-avatar" style="background: #4ECDC4;">E</div>
+              <div class="mock-match__info">
+                <strong>Emma Chen</strong>
+                <span>Mandarin native &bull; Learning Spanish</span>
+              </div>
+              <span class="mock-badge">91%</span>
+            </div>
+            <div class="mock-prompt">
+              <span class="mock-prompt__label">Conversation starter</span>
+              <p>"What's a word in your language that has no translation?"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+      <div class="container">
+        <span class="eyebrow">Why Linger?</span>
+        <h2>Everything you need to<br><em>actually improve</em></h2>
+        <div class="features__grid">
+          <div class="feature-card reveal">
+            <div class="feature-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h3>Smart Matching</h3>
+            <p>Get matched with students based on <strong>language, interests, and personality</strong>, so conversations actually work.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>Easy Conversations</h3>
+            <p>Built-in prompts and guided chats make it easy to <strong>start and keep conversations going</strong>.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3>Local Connections</h3>
+            <p>Meet people on your campus and <strong>practice languages in real life</strong>, not just through a screen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits">
+      <div class="container">
+        <div class="benefit reveal">
+          <div class="benefit__number">01</div>
+          <div class="benefit__content">
+            <h3>Find the right people <em>instantly</em></h3>
+            <p>Get matched with students based on language, interests, and personality, so conversations actually work. No more awkward silences with random strangers.</p>
+          </div>
+          <div class="benefit__visual">
+            <div class="mini-card">
+              <div class="mini-card__row">
+                <div class="mini-avatar" style="background:#6C63FF;">S</div>
+                <div>
+                  <strong>Sofia M.</strong>
+                  <span>Spanish &rarr; English</span>
+                </div>
+                <span class="match-pct">98% match</span>
+              </div>
+              <div class="mini-tags">
+                <span>photography</span><span>hiking</span><span>cinema</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="benefit benefit--reverse reveal">
+          <div class="benefit__number">02</div>
+          <div class="benefit__content">
+            <h3>Never run out of<br><em>things to say</em></h3>
+            <p>Built-in prompts and guided chats make it easy to start and keep conversations going. From icebreakers to deep questions, we've got you covered.</p>
+          </div>
+          <div class="benefit__visual">
+            <div class="mini-chat">
+              <div class="mini-chat__prompt">
+                <span>Conversation starter</span>
+                <p>"What's the biggest culture shock you've experienced in Spain?"</p>
+              </div>
+              <div class="mini-chat__bubble mini-chat__bubble--right">Definitely the late dinners haha</div>
+              <div class="mini-chat__bubble mini-chat__bubble--left">Jaja si! In France we eat at 7...</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="benefit reveal">
+          <div class="benefit__number">03</div>
+          <div class="benefit__content">
+            <h3>Turn practice into<br><em>real connections</em></h3>
+            <p>Meet people on your campus and practice languages in real life, not just through a screen. Study sessions, coffee runs, tapas nights — language learning becomes social.</p>
+          </div>
+          <div class="benefit__visual">
+            <div class="mini-meetup">
+              <div class="mini-meetup__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <strong>Tapas Tuesday</strong>
+              <span>5 people going &bull; Plaza Mayor</span>
+              <div class="mini-meetup__avatars">
+                <div class="mini-av" style="background:#6C63FF;">S</div>
+                <div class="mini-av" style="background:#FF6B6B;">L</div>
+                <div class="mini-av" style="background:#4ECDC4;">E</div>
+                <div class="mini-av" style="background:#FFE66D;">M</div>
+                <div class="mini-av" style="background:#A8E6CF;">A</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how" id="how">
+      <div class="container">
+        <span class="eyebrow">Simple as 1-2-3</span>
+        <h2>How it works</h2>
+        <div class="how__steps">
+          <div class="step reveal">
+            <div class="step__num">1</div>
+            <h3>Create your profile</h3>
+            <p>Add your languages, interests, and what you want to practice. Takes 30 seconds.</p>
+          </div>
+          <div class="step__line"></div>
+          <div class="step reveal">
+            <div class="step__num">2</div>
+            <h3>Get matched</h3>
+            <p>Our algorithm finds compatible students who speak the language you're learning.</p>
+          </div>
+          <div class="step__line"></div>
+          <div class="step reveal">
+            <div class="step__num">3</div>
+            <h3>Start chatting</h3>
+            <p>Break the ice with prompts or jump straight in. Meet up in person when you're ready.</p>
+          </div>
+        </div>
+        <div class="how__details reveal">
+          <div class="detail-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            <span>Matches based on language level + interests</span>
+          </div>
+          <div class="detail-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            <span>Start conversations with low-pressure prompts</span>
+          </div>
+          <div class="detail-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            <span>Continue chatting or move to real-life meetups</span>
+          </div>
+          <div class="detail-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            <span>Designed specifically for IE students in Segovia</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="social-proof" id="community">
+      <div class="container">
+        <span class="eyebrow">What students say</span>
+        <h2>Loved by the IE community</h2>
+        <div class="testimonials">
+          <div class="testimonial reveal">
+            <div class="testimonial__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Finally a way to practice Spanish and actually meet people."</p>
+            <div class="testimonial__author">
+              <div class="avatar" style="background: #FF6B6B;">A</div>
+              <div>
+                <strong>Ana L.</strong>
+                <span>IE Business School</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial reveal">
+            <div class="testimonial__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Way more engaging than HelloTalk. The prompts are genius."</p>
+            <div class="testimonial__author">
+              <div class="avatar" style="background: #4ECDC4;">T</div>
+              <div>
+                <strong>Thomas K.</strong>
+                <span>IE Law School</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial reveal">
+            <div class="testimonial__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"I actually keep using this app. Made real friends through it."</p>
+            <div class="testimonial__author">
+              <div class="avatar" style="background: #6C63FF;">M</div>
+              <div>
+                <strong>Maria V.</strong>
+                <span>IE Architecture</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WAITLIST CTA -->
+    <section class="waitlist" id="waitlist">
+      <div class="container">
+        <div class="waitlist__card reveal">
+          <span class="eyebrow">Early access</span>
+          <h2>Get in before everyone else</h2>
+          <p>Join the waitlist and be the first to connect with IE students on campus. Launching soon in Segovia.</p>
+          <form class="waitlist__form" id="waitlistForm">
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Your name" required>
+              <input type="email" name="email" placeholder="IE email address" required>
+            </div>
+            <div class="form-row">
+              <select name="native_language">
+                <option value="">Native language</option>
+                <option>Spanish</option>
+                <option>English</option>
+                <option>French</option>
+                <option>German</option>
+                <option>Italian</option>
+                <option>Portuguese</option>
+                <option>Mandarin</option>
+                <option>Japanese</option>
+                <option>Korean</option>
+                <option>Arabic</option>
+                <option>Hindi</option>
+                <option>Other</option>
+              </select>
+              <select name="learning_language">
+                <option value="">Learning language</option>
+                <option>Spanish</option>
+                <option>English</option>
+                <option>French</option>
+                <option>German</option>
+                <option>Italian</option>
+                <option>Portuguese</option>
+                <option>Mandarin</option>
+                <option>Japanese</option>
+                <option>Korean</option>
+                <option>Arabic</option>
+                <option>Hindi</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">Join the Waitlist</button>
+            <p class="waitlist__note">Free forever. No spam. Unsubscribe anytime.</p>
+          </form>
+          <div class="waitlist__success" id="waitlistSuccess" style="display:none;">
+            <div class="success-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            </div>
+            <h3>You're on the list!</h3>
+            <p>We'll let you know as soon as Linger launches. Get ready to meet amazing people.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <a href="/" class="nav__logo">linger<span>.</span></a>
+          <p>Practice languages with people, not apps.</p>
+        </div>
+        <div class="footer__links">
+          <a href="#features">Features</a>
+          <a href="#how">How it works</a>
+          <a href="#community">Community</a>
+          <a href="#waitlist">Join waitlist</a>
+        </div>
+        <div class="footer__bottom">
+          <span>&copy; 2026 Linger. Made for IE students in Segovia.</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Linger App</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#6C63FF">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/app-styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>L</text></svg>">
+</head>
+<body>
+
+  <!-- STATUS BAR -->
+  <div class="status-bar">
+    <span class="status-bar__time" id="statusTime">9:41</span>
+    <div class="status-bar__icons">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+    </div>
+  </div>
+
+  <!-- APP SHELL -->
+  <div class="app-shell">
+
+    <!-- ===== HOME / DASHBOARD ===== -->
+    <div class="view active" id="view-home">
+      <div class="view__header">
+        <div class="view__header-left">
+          <h1 class="app-logo">linger<span>.</span></h1>
+        </div>
+        <div class="view__header-right">
+          <button class="icon-btn" onclick="showNotifications()">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="badge">3</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="view__scroll">
+        <!-- Welcome Card -->
+        <div class="welcome-card">
+          <div class="welcome-card__avatar" id="myAvatar">F</div>
+          <div class="welcome-card__text">
+            <span class="welcome-card__greeting" id="greetingText">Good morning</span>
+            <h2>Fernando</h2>
+          </div>
+          <div class="welcome-card__streak">
+            <span class="streak-num">7</span>
+            <span class="streak-label">day streak</span>
+          </div>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="stats-row" id="statsRow">
+          <div class="stat-card stat-card--purple">
+            <span class="stat-card__num" id="statUsers">--</span>
+            <span class="stat-card__label">People</span>
+          </div>
+          <div class="stat-card stat-card--pink">
+            <span class="stat-card__num" id="statMatches">--</span>
+            <span class="stat-card__label">Matches</span>
+          </div>
+          <div class="stat-card stat-card--teal">
+            <span class="stat-card__num" id="statMessages">--</span>
+            <span class="stat-card__label">Messages</span>
+          </div>
+          <div class="stat-card stat-card--yellow">
+            <span class="stat-card__num" id="statLangs">--</span>
+            <span class="stat-card__label">Languages</span>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="section-header">
+          <h3>Quick Actions</h3>
+        </div>
+        <div class="quick-actions">
+          <button class="quick-action" onclick="switchView('discover')">
+            <div class="quick-action__icon qa-discover">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            </div>
+            <span>Discover</span>
+          </button>
+          <button class="quick-action" onclick="switchView('chat')">
+            <div class="quick-action__icon qa-chat">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <span>Chat</span>
+          </button>
+          <button class="quick-action" onclick="switchView('prompts')">
+            <div class="quick-action__icon qa-prompts">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <span>Prompts</span>
+          </button>
+          <button class="quick-action" onclick="switchView('profile')">
+            <div class="quick-action__icon qa-profile">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <span>Profile</span>
+          </button>
+        </div>
+
+        <!-- Today's Prompt -->
+        <div class="section-header">
+          <h3>Today's Prompt</h3>
+          <button class="text-btn" onclick="loadDailyPrompt()">Refresh</button>
+        </div>
+        <div class="daily-prompt" id="dailyPrompt">
+          <div class="daily-prompt__category">icebreaker</div>
+          <p class="daily-prompt__text">"What's your favorite thing about studying in Segovia?"</p>
+          <button class="daily-prompt__use" onclick="copyDailyPrompt()">Copy &amp; Use</button>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="section-header">
+          <h3>Recent Activity</h3>
+        </div>
+        <div class="activity-feed">
+          <div class="activity-item">
+            <div class="activity-item__dot activity-item__dot--green"></div>
+            <div class="activity-item__content">
+              <strong>Lucas Dubois</strong> accepted your connection
+              <span class="activity-item__time">2 hours ago</span>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-item__dot activity-item__dot--blue"></div>
+            <div class="activity-item__content">
+              <strong>Sofia Martinez</strong> sent you a message
+              <span class="activity-item__time">5 hours ago</span>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-item__dot activity-item__dot--purple"></div>
+            <div class="activity-item__content">
+              New match suggestion: <strong>Emma Chen</strong>
+              <span class="activity-item__time">Yesterday</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== DISCOVER / SWIPE ===== -->
+    <div class="view" id="view-discover">
+      <div class="view__header">
+        <button class="icon-btn" onclick="switchView('home')">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <h2 class="view__title">Discover</h2>
+        <button class="icon-btn" onclick="showFilters()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/></svg>
+        </button>
+      </div>
+
+      <!-- Swipe Stack -->
+      <div class="swipe-area">
+        <div class="swipe-stack" id="swipeStack">
+          <!-- Cards injected via JS -->
+        </div>
+        <div class="swipe-empty" id="swipeEmpty" style="display:none;">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          <h3>You've seen everyone!</h3>
+          <p>Check back later for new students</p>
+          <button class="btn btn--primary" onclick="resetSwipe()">Start Over</button>
+        </div>
+      </div>
+
+      <!-- Swipe Buttons -->
+      <div class="swipe-actions">
+        <button class="swipe-btn swipe-btn--skip" onclick="swipeAction('skip')" id="btnSkip">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <button class="swipe-btn swipe-btn--superlike" onclick="swipeAction('superlike')" id="btnSuperlike">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </button>
+        <button class="swipe-btn swipe-btn--connect" onclick="swipeAction('connect')" id="btnConnect">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== MATCHES ===== -->
+    <div class="view" id="view-matches">
+      <div class="view__header">
+        <button class="icon-btn" onclick="switchView('home')">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <h2 class="view__title">Matches</h2>
+        <div></div>
+      </div>
+      <div class="view__scroll">
+        <div class="section-header">
+          <h3>New Matches</h3>
+          <span class="count-badge" id="matchCountBadge">0</span>
+        </div>
+        <div class="matches-horizontal" id="newMatchesRow"></div>
+
+        <div class="section-header" style="margin-top:1.5rem;">
+          <h3>All Connections</h3>
+        </div>
+        <div class="connections-list" id="connectionsList"></div>
+      </div>
+    </div>
+
+    <!-- ===== CHAT ===== -->
+    <div class="view" id="view-chat">
+      <div class="view__header">
+        <button class="icon-btn" onclick="switchView('home')">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <h2 class="view__title">Messages</h2>
+        <div></div>
+      </div>
+      <div class="view__scroll" id="chatListView">
+        <div class="chat-list" id="chatList"></div>
+      </div>
+
+      <!-- Chat Conversation (hidden until thread selected) -->
+      <div class="chat-conversation" id="chatConversation" style="display:none;">
+        <div class="chat-conv__header">
+          <button class="icon-btn" onclick="closeChatConversation()">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <div class="chat-conv__user">
+            <div class="chat-conv__avatar" id="chatConvAvatar">S</div>
+            <div>
+              <strong id="chatConvName">Sofia</strong>
+              <span class="online-dot">Online</span>
+            </div>
+          </div>
+          <button class="icon-btn" onclick="insertPrompt()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </button>
+        </div>
+        <div class="chat-conv__messages" id="chatConvMessages"></div>
+        <div class="chat-conv__input">
+          <input type="text" id="chatConvInput" placeholder="Type a message...">
+          <button class="send-btn" onclick="sendChatMessage()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PROMPTS ===== -->
+    <div class="view" id="view-prompts">
+      <div class="view__header">
+        <button class="icon-btn" onclick="switchView('home')">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <h2 class="view__title">Prompts</h2>
+        <div></div>
+      </div>
+      <div class="view__scroll">
+        <div class="prompt-filters" id="promptFilters">
+          <button class="pill active" data-cat="all" onclick="filterAppPrompts('all', this)">All</button>
+          <button class="pill" data-cat="icebreaker" onclick="filterAppPrompts('icebreaker', this)">Icebreakers</button>
+          <button class="pill" data-cat="culture" onclick="filterAppPrompts('culture', this)">Culture</button>
+          <button class="pill" data-cat="deep" onclick="filterAppPrompts('deep', this)">Deep</button>
+          <button class="pill" data-cat="fun" onclick="filterAppPrompts('fun', this)">Fun</button>
+          <button class="pill" data-cat="academic" onclick="filterAppPrompts('academic', this)">Academic</button>
+        </div>
+        <div class="app-prompts-list" id="appPromptsList"></div>
+      </div>
+    </div>
+
+    <!-- ===== PROFILE ===== -->
+    <div class="view" id="view-profile">
+      <div class="view__header">
+        <button class="icon-btn" onclick="switchView('home')">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <h2 class="view__title">Profile</h2>
+        <a href="/" class="text-btn">Exit App</a>
+      </div>
+      <div class="view__scroll">
+        <div class="profile-hero">
+          <div class="profile-hero__avatar">F</div>
+          <h2>Fernando</h2>
+          <span class="profile-hero__campus">IE University &bull; Segovia</span>
+        </div>
+        <div class="profile-section">
+          <h4>Languages</h4>
+          <div class="lang-row">
+            <div class="lang-tag lang-tag--native">
+              <span class="lang-tag__flag">ES</span>
+              <div>
+                <strong>Spanish</strong>
+                <span>Native</span>
+              </div>
+            </div>
+            <div class="lang-tag lang-tag--learning">
+              <span class="lang-tag__flag">EN</span>
+              <div>
+                <strong>English</strong>
+                <span>Advanced</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h4>Interests</h4>
+          <div class="interest-tags">
+            <span>startups</span>
+            <span>travel</span>
+            <span>photography</span>
+            <span>football</span>
+            <span>cooking</span>
+            <span>music</span>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h4>About</h4>
+          <p class="profile-bio">Entrepreneur and language enthusiast. Building cool things and meeting amazing people in Segovia.</p>
+        </div>
+        <div class="profile-section">
+          <h4>Stats</h4>
+          <div class="profile-stats">
+            <div class="profile-stat">
+              <span class="profile-stat__num">7</span>
+              <span class="profile-stat__label">Day Streak</span>
+            </div>
+            <div class="profile-stat">
+              <span class="profile-stat__num" id="profileMatches">0</span>
+              <span class="profile-stat__label">Matches</span>
+            </div>
+            <div class="profile-stat">
+              <span class="profile-stat__num" id="profileMessages">0</span>
+              <span class="profile-stat__label">Messages</span>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h4>Settings</h4>
+          <div class="settings-list">
+            <div class="settings-item">
+              <span>Notifications</span>
+              <div class="toggle active" onclick="this.classList.toggle('active')"><div class="toggle__dot"></div></div>
+            </div>
+            <div class="settings-item">
+              <span>Available for matching</span>
+              <div class="toggle active" onclick="this.classList.toggle('active')"><div class="toggle__dot"></div></div>
+            </div>
+            <div class="settings-item">
+              <span>Dark Mode</span>
+              <div class="toggle" onclick="this.classList.toggle('active'); document.body.classList.toggle('dark')"><div class="toggle__dot"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <button class="bottom-nav__item active" data-view="home" onclick="switchView('home')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </button>
+    <button class="bottom-nav__item" data-view="discover" onclick="switchView('discover')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+      <span>Discover</span>
+    </button>
+    <button class="bottom-nav__item" data-view="matches" onclick="switchView('matches')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <span>Matches</span>
+    </button>
+    <button class="bottom-nav__item" data-view="chat" onclick="switchView('chat')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span>Chat</span>
+      <span class="nav-badge" id="chatBadge">2</span>
+    </button>
+    <button class="bottom-nav__item" data-view="profile" onclick="switchView('profile')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>Profile</span>
+    </button>
+  </nav>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- NOTIFICATIONS MODAL -->
+  <div class="modal-overlay" id="notifModal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <div class="modal__header">
+        <h3>Notifications</h3>
+        <button class="icon-btn" onclick="document.getElementById('notifModal').classList.remove('open')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="notif-list">
+        <div class="notif-item notif-item--unread">
+          <div class="notif-item__avatar" style="background:#FF6B6B;">L</div>
+          <div class="notif-item__text">
+            <strong>Lucas Dubois</strong> wants to practice Spanish with you!
+            <span>2 hours ago</span>
+          </div>
+        </div>
+        <div class="notif-item notif-item--unread">
+          <div class="notif-item__avatar" style="background:#4ECDC4;">E</div>
+          <div class="notif-item__text">
+            <strong>Emma Chen</strong> sent you a message
+            <span>5 hours ago</span>
+          </div>
+        </div>
+        <div class="notif-item notif-item--unread">
+          <div class="notif-item__avatar" style="background:#6C63FF;">S</div>
+          <div class="notif-item__text">
+            <strong>New match!</strong> Sofia Martinez shares 3 interests with you
+            <span>Yesterday</span>
+          </div>
+        </div>
+        <div class="notif-item">
+          <div class="notif-item__avatar" style="background:#A8E6CF;">Y</div>
+          <div class="notif-item__text">
+            <strong>Weekly recap:</strong> You sent 12 messages this week!
+            <span>2 days ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER MODAL -->
+  <div class="modal-overlay" id="filterModal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <div class="modal__header">
+        <h3>Filter People</h3>
+        <button class="icon-btn" onclick="document.getElementById('filterModal').classList.remove('open')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="filter-form">
+        <label>They speak</label>
+        <select id="filterNative">
+          <option value="">Any language</option>
+          <option>Spanish</option><option>English</option><option>French</option>
+          <option>German</option><option>Italian</option><option>Portuguese</option>
+          <option>Mandarin</option><option>Japanese</option>
+        </select>
+        <label>They're learning</label>
+        <select id="filterLearning">
+          <option value="">Any language</option>
+          <option>Spanish</option><option>English</option><option>French</option>
+          <option>German</option><option>Italian</option><option>Portuguese</option>
+          <option>Mandarin</option><option>Japanese</option>
+        </select>
+        <label>Level</label>
+        <select id="filterLevel">
+          <option value="">Any level</option>
+          <option>beginner</option><option>intermediate</option><option>advanced</option>
+        </select>
+        <button class="btn btn--primary btn--full" onclick="applyFilters()">Apply Filters</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app-main.js"></script>
+</body>
+</html>
